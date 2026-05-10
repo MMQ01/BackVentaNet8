@@ -1,34 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\marce\\OneDrive\\Escritorio\\Pruebas ventas\\BackVentas\\",
+  "WorkspaceRootPath": "C:\\Users\\Desarrollo\\Documents\\Apoyo\\BackVentaNet8\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{65A2E3D1-0BEF-4922-BD12-BAE44394AB83}|BackVentas\\BackVentas.csproj|c:\\users\\marce\\onedrive\\escritorio\\pruebas ventas\\backventas\\backventas\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{65A2E3D1-0BEF-4922-BD12-BAE44394AB83}|BackVentas\\BackVentas.csproj|c:\\users\\desarrollo\\documents\\apoyo\\backventanet8\\backventas\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{65A2E3D1-0BEF-4922-BD12-BAE44394AB83}|BackVentas\\BackVentas.csproj|solutionrelative:backventas\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{65A2E3D1-0BEF-4922-BD12-BAE44394AB83}|BackVentas\\BackVentas.csproj|c:\\users\\marce\\onedrive\\escritorio\\pruebas ventas\\backventas\\backventas\\backventas.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
-      "RelativeMoniker": "D:0:0:{65A2E3D1-0BEF-4922-BD12-BAE44394AB83}|BackVentas\\BackVentas.csproj|solutionrelative:backventas\\backventas.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+      "AbsoluteMoniker": "D:0:0:{65A2E3D1-0BEF-4922-BD12-BAE44394AB83}|BackVentas\\BackVentas.csproj|c:\\users\\desarrollo\\documents\\apoyo\\backventanet8\\backventas\\services\\pedidoservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65A2E3D1-0BEF-4922-BD12-BAE44394AB83}|BackVentas\\BackVentas.csproj|solutionrelative:backventas\\services\\pedidoservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{65A2E3D1-0BEF-4922-BD12-BAE44394AB83}|BackVentas\\BackVentas.csproj|c:\\users\\marce\\onedrive\\escritorio\\pruebas ventas\\backventas\\backventas\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{65A2E3D1-0BEF-4922-BD12-BAE44394AB83}|BackVentas\\BackVentas.csproj|solutionrelative:backventas\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{65A2E3D1-0BEF-4922-BD12-BAE44394AB83}|BackVentas\\BackVentas.csproj|c:\\users\\marce\\onedrive\\escritorio\\pruebas ventas\\backventas\\backventas\\controllers\\clientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{65A2E3D1-0BEF-4922-BD12-BAE44394AB83}|BackVentas\\BackVentas.csproj|solutionrelative:backventas\\controllers\\clientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{65A2E3D1-0BEF-4922-BD12-BAE44394AB83}|BackVentas\\BackVentas.csproj|c:\\users\\marce\\onedrive\\escritorio\\pruebas ventas\\backventas\\backventas\\controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{65A2E3D1-0BEF-4922-BD12-BAE44394AB83}|BackVentas\\BackVentas.csproj|solutionrelative:backventas\\controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{65A2E3D1-0BEF-4922-BD12-BAE44394AB83}|BackVentas\\BackVentas.csproj|c:\\users\\marce\\onedrive\\escritorio\\pruebas ventas\\backventas\\backventas\\controllers\\pedidoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{65A2E3D1-0BEF-4922-BD12-BAE44394AB83}|BackVentas\\BackVentas.csproj|c:\\users\\desarrollo\\documents\\apoyo\\backventanet8\\backventas\\controllers\\pedidoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{65A2E3D1-0BEF-4922-BD12-BAE44394AB83}|BackVentas\\BackVentas.csproj|solutionrelative:backventas\\controllers\\pedidoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{65A2E3D1-0BEF-4922-BD12-BAE44394AB83}|BackVentas\\BackVentas.csproj|c:\\users\\marce\\onedrive\\escritorio\\pruebas ventas\\backventas\\backventas\\servicios\\pedidoservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{65A2E3D1-0BEF-4922-BD12-BAE44394AB83}|BackVentas\\BackVentas.csproj|solutionrelative:backventas\\servicios\\pedidoservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,99 +22,84 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 8,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{a34b1c5d-6d37-4a0c-a8b0-99f8e8158b48}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{6324226f-61b6-4f28-92ee-18d4b5fe1e48}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PedidoServices.cs",
+              "DocumentMoniker": "C:\\Users\\Desarrollo\\Documents\\Apoyo\\BackVentaNet8\\BackVentas\\Services\\PedidoServices.cs",
+              "RelativeDocumentMoniker": "BackVentas\\Services\\PedidoServices.cs",
+              "ToolTip": "C:\\Users\\Desarrollo\\Documents\\Apoyo\\BackVentaNet8\\BackVentas\\Services\\PedidoServices.cs",
+              "RelativeToolTip": "BackVentas\\Services\\PedidoServices.cs",
+              "ViewState": "AgIAAN0AAAAAAAAAAAAqwOYBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-10T03:28:20.671Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\marce\\OneDrive\\Escritorio\\Pruebas ventas\\BackVentas\\BackVentas\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\Desarrollo\\Documents\\Apoyo\\BackVentaNet8\\BackVentas\\Program.cs",
               "RelativeDocumentMoniker": "BackVentas\\Program.cs",
-              "ToolTip": "C:\\Users\\marce\\OneDrive\\Escritorio\\Pruebas ventas\\BackVentas\\BackVentas\\Program.cs",
+              "ToolTip": "C:\\Users\\Desarrollo\\Documents\\Apoyo\\BackVentaNet8\\BackVentas\\Program.cs",
               "RelativeToolTip": "BackVentas\\Program.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAAABYAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-31T16:03:39.854Z",
+              "WhenOpened": "2026-05-10T03:18:17.871Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\marce\\OneDrive\\Escritorio\\Pruebas ventas\\BackVentas\\BackVentas\\appsettings.json",
-              "RelativeDocumentMoniker": "BackVentas\\appsettings.json",
-              "ToolTip": "C:\\Users\\marce\\OneDrive\\Escritorio\\Pruebas ventas\\BackVentas\\BackVentas\\appsettings.json",
-              "RelativeToolTip": "BackVentas\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-07-31T16:03:32.085Z",
+              "Title": "PedidosController.cs",
+              "DocumentMoniker": "C:\\Users\\Desarrollo\\Documents\\Apoyo\\BackVentaNet8\\BackVentas\\Controllers\\PedidosController.cs",
+              "RelativeDocumentMoniker": "BackVentas\\Controllers\\PedidosController.cs",
+              "ToolTip": "C:\\Users\\Desarrollo\\Documents\\Apoyo\\BackVentaNet8\\BackVentas\\Controllers\\PedidosController.cs",
+              "RelativeToolTip": "BackVentas\\Controllers\\PedidosController.cs",
+              "ViewState": "AgIAALcAAAAAAAAAAAAswBYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-10T03:18:07.96Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "BackVentas.http",
-              "DocumentMoniker": "C:\\Users\\marce\\OneDrive\\Escritorio\\Pruebas ventas\\BackVentas\\BackVentas\\BackVentas.http",
-              "RelativeDocumentMoniker": "BackVentas\\BackVentas.http",
-              "ToolTip": "C:\\Users\\marce\\OneDrive\\Escritorio\\Pruebas ventas\\BackVentas\\BackVentas\\BackVentas.http",
-              "RelativeToolTip": "BackVentas\\BackVentas.http",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2024-07-31T16:03:29.918Z",
-              "EditorCaption": ""
-            },
+            }
+          ]
+        },
+        {
+          "DockedWidth": 316,
+          "SelectedChildIndex": -1,
+          "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ProductosController.cs",
-              "DocumentMoniker": "C:\\Users\\marce\\OneDrive\\Escritorio\\Pruebas ventas\\BackVentas\\BackVentas\\Controllers\\ProductosController.cs",
-              "RelativeDocumentMoniker": "BackVentas\\Controllers\\ProductosController.cs",
-              "ToolTip": "C:\\Users\\marce\\OneDrive\\Escritorio\\Pruebas ventas\\BackVentas\\BackVentas\\Controllers\\ProductosController.cs",
-              "RelativeToolTip": "BackVentas\\Controllers\\ProductosController.cs",
-              "ViewState": "AQIAACcAAAAAAAAAAAAowAwAAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-23T03:03:58.899Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "clientesController.cs",
-              "DocumentMoniker": "C:\\Users\\marce\\OneDrive\\Escritorio\\Pruebas ventas\\BackVentas\\BackVentas\\Controllers\\clientesController.cs",
-              "RelativeDocumentMoniker": "BackVentas\\Controllers\\clientesController.cs",
-              "ToolTip": "C:\\Users\\marce\\OneDrive\\Escritorio\\Pruebas ventas\\BackVentas\\BackVentas\\Controllers\\clientesController.cs",
-              "RelativeToolTip": "BackVentas\\Controllers\\clientesController.cs",
-              "ViewState": "AQIAAFAAAAAAAAAAAAAIwAsAAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-23T03:02:37.557Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "PedidosController.cs",
-              "DocumentMoniker": "C:\\Users\\marce\\OneDrive\\Escritorio\\Pruebas ventas\\BackVentas\\BackVentas\\Controllers\\PedidosController.cs",
-              "RelativeDocumentMoniker": "BackVentas\\Controllers\\PedidosController.cs",
-              "ToolTip": "C:\\Users\\marce\\OneDrive\\Escritorio\\Pruebas ventas\\BackVentas\\BackVentas\\Controllers\\PedidosController.cs",
-              "RelativeToolTip": "BackVentas\\Controllers\\PedidosController.cs",
-              "ViewState": "AQIAAC8AAAAAAAAAAAAwwAsAAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-23T02:43:52.15Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "PedidoServices.cs",
-              "DocumentMoniker": "C:\\Users\\marce\\OneDrive\\Escritorio\\Pruebas ventas\\BackVentas\\BackVentas\\Servicios\\PedidoServices.cs",
-              "RelativeDocumentMoniker": "BackVentas\\Servicios\\PedidoServices.cs",
-              "ToolTip": "C:\\Users\\marce\\OneDrive\\Escritorio\\Pruebas ventas\\BackVentas\\BackVentas\\Servicios\\PedidoServices.cs",
-              "RelativeToolTip": "BackVentas\\Servicios\\PedidoServices.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-23T02:43:46.206Z"
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
             }
           ]
         }

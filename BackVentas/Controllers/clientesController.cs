@@ -1,188 +1,294 @@
-﻿using BackVentas.Modelos;
-using BackVentas.Modelos.ViewModel_DTO_;
-using BackVentas.Servicios;
+﻿using BackVentasADO.Controllers.Services;
+using BackVentasADO.Models.Clases;
+using BackVentasADO.Models.Clases.DTO;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BackVentas.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
-    //[Authorize]
-    public class clientesController : ControllerBase
-    {
-        private readonly IClientes clientesService;
 
-        public clientesController(IClientes clientesServices)
+    public class ClientesController : ControllerBase
+    {
+        private readonly ClienteServices _clientesService;
+
+        public ClientesController(ClienteServices clientesService)
         {
-            this.clientesService = clientesServices;
+            _clientesService = clientesService;
         }
+
+
 
 
         [HttpGet]
-       
-        public IActionResult getClientes()
+        [Route("api/Clientes")]
+        public csListaCliente getClientes()
         {
-            Resultado res = new Resultado();
+            csListaCliente res = new csListaCliente();
             try
             {
 
-                var lista = this.clientesService.GetClientes();
-                res.Respuesta = lista;
-                res.Mensaje = "OK";
+                var lista = _clientesService.GetClientes();
+
+                if (lista.Respuesta == "OK")
+                {
+
+                    res.Respuesta = "OK";
+                    res.Lista_Clientes = lista.Lista_Clientes;
+
+                }
+                else
+                {
+                    res.Respuesta = "ERROR";
+                    res.Mensaje = lista.Mensaje;
+                }
+
+                res.Respuesta = "OK";
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                res.Mensaje = "Error";
-                return BadRequest(res);
+                res.Respuesta = "Error";
+                return res;
             }
-
-            return Ok(res);
+            return res;
         }
+
+        [HttpGet("PorUsuario")]
+        public csListaCliente getClientesXUsuario(int Usuario)
+        {
+            csListaCliente res = new csListaCliente();
+            try
+            {
+
+                var lista = _clientesService.GetClientesXUsuario(Usuario);
+
+                if (lista.Respuesta == "OK")
+                {
+
+                    res.Respuesta = "OK";
+                    res.Lista_Clientes = lista.Lista_Clientes;
+
+                }
+                else
+                {
+                    res.Respuesta = "ERROR";
+                    res.Mensaje = lista.Mensaje;
+                }
+
+                res.Respuesta = "OK";
+            }
+            catch (Exception ex)
+            {
+
+                res.Respuesta = "Error";
+                return res;
+            }
+            return res;
+        }
+
 
         [HttpPost]
-        public IActionResult crearCliente([FromBody] crearClienteViewModel cli)
+        [Route("api/Clientes")]
+        public Resultado crearCliente([FromBody] ClienteDTO cli)
         {
             Resultado res = new Resultado();
             try
             {
 
-                var cliente = this.clientesService.crearCliente(cli);
-                res.Respuesta = cliente;
-                res.Mensaje = "OK";
-                if (cliente == null)
+                var cliente = _clientesService.crearCliente(cli);
+
+
+                if (cliente.Respuesta == "OK")
                 {
-                    res.Respuesta= "Identificacion del cliente ya existe";
+
+                    res.Respuesta = "OK";
+
+
+                }
+                else
+                {
+                    res.Respuesta = "ERROR";
+                    res.Mensaje = cliente.Mensaje;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                res.Mensaje = "Error";
-                return BadRequest(res);
+                res.Respuesta = "ERROR";
+                res.Mensaje = ex.ToString();
+                return res;
             }
 
-            return Ok(res);
+            return res;
         }
 
 
-        [HttpGet("{id}")]
-        public ActionResult getCliente(int id)
+        [HttpGet("api/Cliente")]
+        public csCliente getCliente(int clienteID)
         {
-            Resultado res = new Resultado();
+            csCliente res = new csCliente();
             try
             {
 
-                var cliente = this.clientesService.getCliente(id);
-                res.Respuesta = cliente;
-                res.Mensaje = "OK";
+                var cliente = _clientesService.getCliente(clienteID);
 
-                if (cliente == null)
+                if (cliente.Respuesta == "OK")
                 {
-                    res.Respuesta = "Cliente no existe";
+
+                    res.Respuesta = "OK";
+                    res.Cliente = cliente.Cliente;
+
+                }
+                else
+                {
+                    res.Respuesta = "ERROR";
+                    res.Mensaje = cliente.Mensaje;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                res.Mensaje = "Error";
-                return BadRequest(res);
+
+                res.Respuesta = "ERROR";
+                res.Mensaje = ex.ToString();
+                return res;
             }
 
-            return Ok(res);
+            return res;
         }
 
         [HttpPut]
-        public ActionResult editarCliente(editarClienteViewModel cli)
+        [Route("api/Clientes")]
+        public Resultado editarCliente(ClienteDTO cli)
         {
             Resultado res = new Resultado();
             try
             {
 
-                var cliente = this.clientesService.editarCliente(cli);
-                res.Respuesta = cliente;
-                res.Mensaje = "OK";
+                var cliente = _clientesService.editarCliente(cli);
+                if (cliente.Respuesta == "OK")
+                {
+
+                    res.Respuesta = "OK";
+
+                }
+                else
+                {
+                    res.Respuesta = "ERROR";
+                    res.Mensaje = cliente.Mensaje;
+                }
             }
             catch (Exception)
             {
 
                 res.Mensaje = "Error";
-                return BadRequest(res);
+                return res;
             }
 
-            return Ok(res);
+            return res;
         }
 
         [HttpPost]
-        [Route("InactivarCliente")]
-        public IActionResult inactivarCliente([FromBody] int id)
+        [Route("api/Clientes/InactivarCliente")]
+        public Resultado inactivarCliente([FromBody] int id)
         {
             Resultado res = new Resultado();
             try
             {
 
-                var cliente = this.clientesService.inactivarCliente(id);
+                var cliente = _clientesService.inactivarCliente(id);
 
-                res.Respuesta = cliente;
-                res.Mensaje = "OK";
+                if (cliente.Respuesta == "OK")
+                {
+
+                    res.Respuesta = cliente.Respuesta;
+
+                }
+                else
+                {
+                    res.Respuesta = "ERROR";
+                    res.Mensaje = cliente.Mensaje;
+                }
             }
             catch (Exception)
             {
 
                 res.Mensaje = "Error";
-                return BadRequest(res);
+                return res;
             }
 
-            return Ok(res);
+            return res;
 
         }
 
         [HttpPost]
-        [Route("ActivarCliente")]
-        public IActionResult activarCliente([FromBody] int id)
+        [Route("api/Clientes/ActivarCliente")]
+        public Resultado activarCliente([FromBody] int id)
         {
             Resultado res = new Resultado();
             try
             {
 
-                var cliente = this.clientesService.activarCliente(id);
+                var cliente = _clientesService.activarCliente(id);
 
-                res.Respuesta = cliente;
-                res.Mensaje = "OK";
+                if (cliente.Respuesta == "OK")
+                {
+
+                    res.Respuesta = "OK";
+
+                }
+                else
+                {
+                    res.Respuesta = "ERROR";
+                    res.Mensaje = cliente.Mensaje;
+                }
             }
             catch (Exception)
             {
 
                 res.Mensaje = "Error";
-                return BadRequest(res);
+                return res;
             }
 
-            return Ok(res);
+            return res;
 
         }
 
-        [HttpDelete("{id}")]
-        public IActionResult deleteCliente( int id)
+        [HttpGet]
+        [Route("api/Clientes/CheckNIT")]
+        public ResultadoBoolean checNIT(string nit)
         {
-            Resultado res = new Resultado();
+            ResultadoBoolean res = new ResultadoBoolean();
             try
             {
 
-                var cliente = this.clientesService.deleteCliente(id);
+                var cliente = _clientesService.checkNIT(nit);
 
-                res.Respuesta = cliente;
-                res.Mensaje = "OK";
+                if (cliente.Respuesta == "OK")
+                {
+
+                    res.Respuesta = cliente.Respuesta;
+                    res.Valor = cliente.Valor;
+                }
+                else
+                {
+                    res.Respuesta = "ERROR";
+                    res.Valor = false;
+                }
+
             }
             catch (Exception)
             {
 
-                res.Mensaje = "Error";
-                return BadRequest(res);
+                res.Valor = false;
+                res.Respuesta = "ERROR";
+                return res;
             }
 
-            return Ok(res);
+            return res;
+
         }
+
     }
 }

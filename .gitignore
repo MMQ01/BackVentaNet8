@@ -1,0 +1,22 @@
+## Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## Build
+bin/
+obj/
+*.exe
+*.dll
+*.pdb
+
+## .NET
+*.nupkg
+*.log
+
+## IDE
+.idea/
+*.swp
+/nul

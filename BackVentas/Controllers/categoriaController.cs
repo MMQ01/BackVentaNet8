@@ -1,52 +1,46 @@
-﻿using BackVentas.Modelos;
-using BackVentas.Modelos.ViewModel_DTO_;
+﻿using BackVentas.Models;
+using BackVentasADO.Models.Clases.DTO;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BackVentas.Controllers
 {
-    [Route("api/[controller]")]
+
     [ApiController]
-    [Authorize]
     public class categoriaController : ControllerBase
     {
+        private readonly VentasDbContext _context;
 
-        VentasContext _context;
-
-        public categoriaController(VentasContext context)
+        public categoriaController(VentasDbContext context)
         {
-              _context = context;
+            _context = context;
         }
 
         [HttpGet]
-        public IActionResult getCategorias()
+        [Route("api/categoria")]
+        public ListaCategoria GetCategorias()
         {
-
-            Resultado res = new Resultado();
+            var res = new ListaCategoria();
             try
             {
                 var lista = _context.Categorias
-                .Select(x => new CategoriaViewModel
-                {
-                    Id = x.Id,
-                    Nombre = x.Nombre,
-                })
-                .ToList();
+                    .Select(x => new CategoriaDTO
+                    {
+                        Id = x.Id,
+                        Nombre = x.Nombre,
+                    })
+                    .ToList();
 
-                res.Respuesta = lista;
-                res.Mensaje = "OK";
-
+                res.Lista_Categoria = lista;
+                res.Respuesta = "OK";
             }
             catch (Exception ex)
             {
-                res.Respuesta = ex.Message;
-                res.Mensaje = "Error";
-                return BadRequest(res);
-                
+                res.Mensaje = ex.Message;
+                res.Respuesta = "Error";
             }
 
-            return Ok(res);
+            return res;
         }
     }
 }

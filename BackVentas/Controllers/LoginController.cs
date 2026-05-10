@@ -1,6 +1,7 @@
-﻿using BackVentas.Modelos;
-using BackVentas.Modelos.ViewModel_DTO_;
-using Microsoft.AspNetCore.Http;
+﻿using BackVentas.Models;
+using BackVentasADO.Models.Clases;
+using BackVentasADO.Models.Clases.DTO;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -13,99 +14,97 @@ namespace BackVentas.Controllers
     [ApiController]
     public class LoginController : ControllerBase
     {
-        VentasContext _context;
-        IConfiguration _configuration;
+        private readonly VentasDbContext _context;
+        private readonly IConfiguration _configuration;
 
-        public LoginController(VentasContext context, IConfiguration configuration)
+        public LoginController(VentasDbContext context, IConfiguration configuration)
         {
             _context = context;
             _configuration = configuration;
         }
 
         [HttpPost]
-        public IActionResult Login(LoginViewModel login)
+        [AllowAnonymous]
+        public ResultadoToken Login([FromBody] LoginViewModel login)
         {
-                ResultadoToken resultado = new ResultadoToken();
+            var resultado = new ResultadoToken();
             try
             {
+                var usuario = (from USU in _context.Usuarios
+                               where USU.Login == login.Login &&
+                                      USU.Contrasena == login.Password
+                               select USU).FirstOrDefault();
 
-                var cliente = _context.Clientes.FirstOrDefault(x => x.Identificacion == login.Identificacion);
-
-               
-                if (cliente == null)
+                if (usuario == null)
                 {
-                    resultado.Respuesta = "Cliente no existe";
-                    resultado.Mensaje = "Error";
-                    return Ok(resultado);
-                }
-                if (cliente.Estado != "SI")
-                {
-                    resultado.Respuesta = "Cliente Inactivo";
-                    resultado.Mensaje = "Error";
-                    return Ok(resultado);
-                }
-                if (cliente.Contraseña != login.contraseña)
-                {
-                    resultado.Respuesta = "Error en la contraseña";
-                    resultado.Mensaje = "Error";
-                    return Ok(resultado);
+                    resultado.Mensaje = "Usuario no existe";
+                    resultado.Respuesta = "ERROR";
+                    return resultado;
                 }
 
-                var token = GenerarTokenJWT(cliente);
-                Console.WriteLine(token);
-                resultado.Respuesta = cliente;
-                resultado.Mensaje = "OK";
-                resultado.token = token;
-                return Ok(resultado);
+                if (!usuario.Estado)
+                {
+                    resultado.Mensaje = "Usuario Inactivo";
+                    resultado.Respuesta = "ERROR";
+                    return resultado;
+                }
+
+                var token = GenerarTokenJWT(usuario);
+
+                var usuarioData = new UsuarioDTO
+                {
+                    Id = usuario.Id,
+                    Login = usuario.Login,
+                    Nombres = usuario.Nombres,
+                    Apellidos = usuario.Apellidos,
+                    Estado = usuario.Estado,
+                    CategoriaId = usuario.Categoria,
+                };
+
+                var nombreCategoria = _context.Categorias
+                    .FirstOrDefault(x => x.Id == usuario.Categoria)?.Nombre;
+
+                usuarioData.NombreCategoria = string.IsNullOrEmpty(nombreCategoria) ? "Sin categoria" : nombreCategoria;
+
+                resultado.Respuesta = "OK";
+                resultado.Usuario = usuarioData;
+                resultado.Token = token;
             }
             catch (Exception ex)
             {
-                resultado.Respuesta = ex.Message;
-                resultado.Mensaje = "Error";
-                return BadRequest(resultado);
+                resultado.Respuesta = "ERROR";
+                resultado.Mensaje = ex.Message;
             }
 
-           
+            return resultado;
         }
 
-
-        private string GenerarTokenJWT(Cliente usuarioInfo)
+        private string GenerarTokenJWT(Usuario usuarioInfo)
         {
-            try
+            var claveJWT = _configuration["JWT:ClaveJWT"];
+            var issuer = _configuration["JWT:Issuer"];
+            var audience = _configuration["JWT:Audience"];
+
+            var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(claveJWT));
+            var signingCredentials = new SigningCredentials(symmetricSecurityKey, SecurityAlgorithms.HmacSha256);
+
+            var claims = new[]
             {
-                // Cabecera
-                var _symmetricSecurityKey = new SymmetricSecurityKey(
-                Encoding.UTF8.GetBytes(_configuration["JWT:ClaveJWT"]));
+                new Claim(JwtRegisteredClaimNames.Name, usuarioInfo.Login),
+                new Claim("Id", usuarioInfo.Id.ToString()),
+            };
 
-                var _signingCredentials = new SigningCredentials(
-                        _symmetricSecurityKey, SecurityAlgorithms.HmacSha256);
+            var token = new JwtSecurityToken(
+                issuer: issuer,
+                audience: audience,
+                claims: claims,
+                notBefore: DateTime.UtcNow,
+                expires: DateTime.UtcNow.AddHours(24),
+                signingCredentials: signingCredentials
+            );
 
-                var _Header = new JwtHeader(_signingCredentials);
-                // Claims
-                var _Claims = new[] {
-                       new Claim(JwtRegisteredClaimNames.Email, usuarioInfo.Email),
-                  };
-
-                //Payload
-                var _Payload = new JwtPayload(
-                        issuer: _configuration["JWT:Issuer"],
-                        audience: _configuration["JWT:Audience"],
-                        claims: _Claims,
-                        notBefore: DateTime.UtcNow,
-                        expires: DateTime.UtcNow.AddHours(24));
-
-                //Token
-                var _Token = new JwtSecurityToken(_Header, _Payload);
-                string token = new JwtSecurityTokenHandler().WriteToken(_Token);
-
-                return token;
-            }
-            catch (Exception ex)
-            {
-                // Manejar la excepción y registrar el error
-                Console.WriteLine(ex);
-                throw new InvalidOperationException("Error al generar el token JWT.", ex);
-            }
+            return new JwtSecurityTokenHandler().WriteToken(token);
         }
     }
 }
+
